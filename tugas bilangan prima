@@ -1,26 +1,36 @@
 #include <iostream>
 using namespace std;
 
-int main (){
-	int angka_awal = 1;
-	int angka_akhir = 30;
-
-	for ( int x = angka_awal ; x <= angka_akhir ; x++)
-	{
-		int counterPrima = 0;
-		for ( int y = 1 ; y <= x ; y++)
-		{
-			if ( x % y == 0 )
-			{
-				counterPrima++;
-			}
-		}
-		if ( counterPrima == 2 )
-		{
-			cout << x << " merupakan bilangan prima " <<endl;
-		} else
-		{
-			cout << x << " bukan bilangan prima " <<endl;
-		}
+int angka( int x, int i){
+	if (i==1){
+		return 1;
+	}
+	else if (x % i == 0){
+		return 1 + angka(x, --i);
+	}
+	else {
+		return 0 + angka(x, --i);
 	}
 }
+int cek (int x){
+	if (x > 1){
+		return (angka(x, x) == 2);
+	}
+	else
+		return false;
+}
+
+int main (){
+	
+	int x;
+	cout << " masukkan angka : ";
+	cin >> x;
+	
+	if (cek(x)){
+		cout <<" merupakan bilangan prima " <<endl;
+	}else {
+		cout << " bukan bilangn prima " <<endl;
+	}
+	return 0;
+}
+
