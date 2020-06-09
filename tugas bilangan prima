@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main (){
+	int angka_awal = 1;
+	int angka_akhir = 30;
+
+	for ( int x = angka_awal ; x <= angka_akhir ; x++)
+	{
+		int counterPrima = 0;
+		for ( int y = 1 ; y <= x ; y++)
+		{
+			if ( x % y == 0 )
+			{
+				counterPrima++;
+			}
+		}
+		if ( counterPrima == 2 )
+		{
+			cout << x << " merupakan bilangan prima " <<endl;
+		} else
+		{
+			cout << x << " bukan bilangan prima " <<endl;
+		}
+	}
+}
